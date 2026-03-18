@@ -14,7 +14,7 @@ public sealed class UnboundAvatarSettingsUi
     private static readonly string[] Tabs = { "Status", "Triggers", "HUD" };
 
     // ── Palette ─────────────────────────────────────────────────────
-    // Electric blue accent — elemental power theme
+    // Electric blue accent  - elemental power theme
     private static uint Accent => Col(0.27f, 0.53f, 1f);
     private static uint AccentDim => Col(0.18f, 0.35f, 0.65f);
     private static uint Label => Col(0.88f, 0.88f, 0.88f);
@@ -292,7 +292,7 @@ public sealed class UnboundAvatarSettingsUi
         DrawInfoBlock(dl, x, ref y,
             "Trigger Conditions",
             "Configure when the skill auto-activates at 100 fury.\n" +
-            "Multiple conditions are OR'd — any match will trigger.");
+            "Multiple conditions are OR'd  - any match will trigger.");
 
         SectionHeader(dl, x, ref y, "Enemy Triggers");
         Toggle("ua_uniq", s.ActivateOnUnique, dl, x, cx, ref y,
