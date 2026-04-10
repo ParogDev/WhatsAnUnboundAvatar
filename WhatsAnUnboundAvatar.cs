@@ -45,6 +45,7 @@ public class WhatsAnUnboundAvatar : BaseSettingsPlugin<WhatsAnUnboundAvatarSetti
 
     public override bool Initialise()
     {
+        Name = "Whats An Unbound Avatar";
         Settings.Triggers ??= new TriggerSettings();
         Settings.Keybind ??= new KeybindSettings();
         Settings.Hud ??= new HudSettings();
