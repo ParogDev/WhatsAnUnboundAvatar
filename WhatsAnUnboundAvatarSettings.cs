@@ -1,4 +1,5 @@
 using System.Windows.Forms;
+using ExileCore.Shared.Attributes;
 using ExileCore.Shared.Interfaces;
 using ExileCore.Shared.Nodes;
 
@@ -13,6 +14,7 @@ public class WhatsAnUnboundAvatarSettings : ISettings
     public HudSettings Hud { get; set; } = new();
 }
 
+[Submenu]
 public class TriggerSettings
 {
     public ToggleNode ActivateOnUnique { get; set; } = new(true);
@@ -23,11 +25,13 @@ public class TriggerSettings
     public RangeNode<int> InputCooldownMs { get; set; } = new(500, 200, 2000);
 }
 
+[Submenu]
 public class KeybindSettings
 {
     public HotkeyNodeV2 SkillKey { get; set; } = new(Keys.XButton1);
 }
 
+[Submenu]
 public class HudSettings
 {
     public ToggleNode ShowHud { get; set; } = new(true);
