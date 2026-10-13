@@ -24,6 +24,8 @@ public sealed class UnboundAvatarSettingsUi
 
     public UnboundAvatarSettingsUi()
     {
+        // "Status" and "Triggers" must match the generated tab names ([MenuTab("Status")] on Keybind, [Menu("Triggers")]
+        // on Triggers): a name that matches no generated tab becomes a tab of its own, holding only this body.
         _menu = new SettingsMenu { Accent = Accent }
             .Banner(DrawStatusStrip)
             .Tab("Status", DrawStatusTab, first: true)

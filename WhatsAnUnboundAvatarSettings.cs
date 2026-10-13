@@ -32,17 +32,17 @@ public class TriggerSettings
     [Menu("Activate on Rare Count", "Activate when at least Rare Count Threshold rare or unique enemies are within range")]
     public ToggleNode ActivateOnRareCount { get; set; } = new(true);
 
-    [Menu("Rare Count Threshold", "How many rare+ enemies in range trigger activation (1-20)")]
+    [Menu("Rare Count Threshold", "How many rare+ enemies in range trigger activation")]
     public RangeNode<int> RareCountThreshold { get; set; } = new(3, 1, 20);
 
     [Menu("Always Activate", "Activate whenever ready, regardless of nearby enemies")]
     public ToggleNode ActivateAlways { get; set; } = new(false);
 
-    [Menu("Activation Range", "Radius scanned for qualifying enemies, in grid units (10-200)")]
+    [Menu("Activation Range", "Radius scanned for qualifying enemies")]
     [MenuUnit("grid")]
     public RangeNode<int> ActivationRange { get; set; } = new(80, 10, 200);
 
-    [Menu("Input Cooldown", "Minimum time between skill key presses, in ms (200-2000)")]
+    [Menu("Input Cooldown", "Minimum time between skill key presses")]
     [MenuUnit("ms")]
     public RangeNode<int> InputCooldownMs { get; set; } = new(500, 200, 2000);
 }
@@ -60,19 +60,19 @@ public class HudSettings
     [Menu("Show HUD", "Show the fury/status bar on screen")]
     public ToggleNode ShowHud { get; set; } = new(true);
 
-    [Menu("Position X", "Left edge of the bar, in screen px")]
+    [Menu("Position X", "Left edge of the bar on screen")]
     [MenuUnit("px")]
     public RangeNode<int> HudX { get; set; } = new(500, 0, 3840);
 
-    [Menu("Position Y", "Top edge of the bar, in screen px")]
+    [Menu("Position Y", "Top edge of the bar on screen")]
     [MenuUnit("px")]
     public RangeNode<int> HudY { get; set; } = new(36, 0, 2160);
 
-    [Menu("Bar Width", "Width of the status bar, in px (50-600)")]
+    [Menu("Bar Width", "Width of the status bar")]
     [MenuUnit("px")]
     public RangeNode<int> BarWidth { get; set; } = new(220, 50, 600);
 
-    [Menu("Bar Height", "Height of the status bar, in px (10-60)")]
+    [Menu("Bar Height", "Height of the status bar")]
     [MenuUnit("px")]
     public RangeNode<int> BarHeight { get; set; } = new(22, 10, 60);
 }
