@@ -12,7 +12,7 @@ Auto-activates the Unbound Avatar (Avatar of the Wilds keystone) skill in PoE2 w
 
 - **Tick()**: Reads player buffs to determine state (Charging/Ready/Active/Cooldown), scans nearby monsters for Unique/Rare counts, evaluates trigger conditions, sends key input when conditions are met. Caches all state for Render and settings UI.
 - **Render()**: Draws a single HUD status bar showing fury progress (green→yellow gradient), ready state (lime), active countdown (orange drain), or cooldown (blue).
-- **DrawSettings()**: Delegates to `UnboundAvatarSettingsUi` which provides a 3-tab neon-styled ImGui panel (Status, Triggers, HUD) with electric blue accent.
+- **DrawSettings()**: Delegates to `UnboundAvatarSettingsUi`, which draws `SettingsMenu` (SettingsMenu.cs, copied from the scaffolding new-plugin template): tabs Status / Triggers / HUD generated from the [Submenu]/[Menu] attributes, plus a live status strip (Banner) and the live fury bar + enemy scan on the Status tab. New settings only need [Menu] labels/tooltips.
 
 ### Buff Names
 
@@ -28,7 +28,7 @@ Auto-activates the Unbound Avatar (Avatar of the Wilds keystone) skill in PoE2 w
 | `Initialise()` | Null-coalesces settings sub-objects |
 | `Tick()` | All logic: buff reading, enemy scan, activation decision, input sending |
 | `Render()` | Draws HUD status bar |
-| `DrawSettings()` | Delegates to custom `UnboundAvatarSettingsUi` |
+| `DrawSettings()` | Delegates to `UnboundAvatarSettingsUi` (SettingsMenu + live Status content) |
 
 ### Current Settings
 
@@ -424,7 +424,7 @@ Panel types:
 - Use Dictionary/HashSet lookups instead of per-frame string comparisons
 - Use switch expressions for tier/type mappings
 - Use readonly fields for immutable configuration
-- Any plugin with 4+ settings should use a dedicated `<PluginName>SettingsUi` class — see "Custom ImGui Settings UI" section for the full widget library
+- Settings UI: this plugin uses `SettingsMenu.cs` (scaffolding new-plugin template), drawn from [Menu]/[Submenu]/[MenuTab]/[MenuUnit]; hand-draw only live content via `.Tab`/`.Banner`/`.Custom`. The "Custom ImGui Settings UI" section below is the older hand-drawn pattern, kept for reference
 
 ## Coordinate Systems
 
@@ -538,7 +538,7 @@ GameController.PluginBridge.ReceiveEvent<EventType>("OtherPlugin.Event", handler
 
 ### Custom ImGui Settings UI
 
-Any plugin with 4+ settings should use a dedicated `<PluginName>SettingsUi` class for a polished, tabbed settings panel instead of the default auto-generated tree.
+Older pattern, superseded in this plugin by `SettingsMenu.cs` (see Architecture): a fully hand-drawn `<PluginName>SettingsUi`. Use it only for content the renderer cannot draw.
 
 **Hook pattern** — in your main plugin class:
 ```csharp
