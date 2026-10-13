@@ -12,7 +12,7 @@ Auto-activates the Unbound Avatar (Avatar of the Wilds keystone) skill in PoE2 w
 
 - **Tick()**: Reads player buffs to determine state (Charging/Ready/Active/Cooldown), scans nearby monsters for Unique/Rare counts, evaluates trigger conditions, sends key input when conditions are met. Caches all state for Render and settings UI.
 - **Render()**: Draws a single HUD status bar showing fury progress (green→yellow gradient), ready state (lime), active countdown (orange drain), or cooldown (blue).
-- **DrawSettings()**: Delegates to `UnboundAvatarSettingsUi` which provides a 3-tab neon-styled ImGui panel (Status, Triggers, HUD) with electric blue accent.
+- **DrawSettings()**: Delegates to `UnboundAvatarSettingsUi`, which draws `SettingsMenu` (SettingsMenu.cs, copied from the scaffolding new-plugin template): tabs Status / Triggers / HUD generated from the [Submenu]/[Menu] attributes, plus a live status strip (Banner) and the live fury bar + enemy scan on the Status tab. New settings only need [Menu] labels/tooltips.
 
 ### Buff Names
 
